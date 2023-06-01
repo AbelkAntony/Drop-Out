@@ -349,9 +349,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 982711500}
+  - component: {fileID: 982711501}
   m_Layer: 0
   m_Name: BirdSpawner
-  m_TagString: Untagged
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -371,6 +372,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &982711501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982711499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bfbb22bed1e3d42b5b16a6fb85d2d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bird: {fileID: 7670428976147248107, guid: dcf5ffe4a17a5cb4e91d933c9e2f41b4, type: 3}
+  spawnDuration: 3
 --- !u!1 &1109971711
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24db72b7f7ceda048ac7c76ad9b39925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
+  speed: 50
 --- !u!1 &1318430150
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593773c8d9886d54abbf465d3d15b2f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  point: 0
 --- !u!1 &1650939939
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,6 +699,7 @@ GameObject:
   - component: {fileID: 1650939942}
   - component: {fileID: 1650939941}
   - component: {fileID: 1650939940}
+  - component: {fileID: 1650939944}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -724,7 +741,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.0029416382}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -735,7 +752,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7, y: 0.57}
+  m_Size: {x: 1.7, y: 0.5758832}
   m_EdgeRadius: 0
 --- !u!212 &1650939942
 SpriteRenderer:
@@ -804,6 +821,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1650939944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650939939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ccdccc3d6d02694882f1bd74e9e89cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1880532358
 GameObject:
   m_ObjectHideFlags: 0
