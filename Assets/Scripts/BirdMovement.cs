@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BirdMovement : MonoBehaviour
 {
+
     private Vector2 direction = Vector2.down;
-    public float speed;
+    private float _speed;
 
     public new Rigidbody2D rigidbody { get; private set; }
 
@@ -14,8 +15,10 @@ public class BirdMovement : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
+   
     private void FixedUpdate()
     {
-        this.rigidbody.AddForce(this.direction * this.speed);
+       // BirdSpawner.Speed();
+        this.rigidbody.AddForce(this.direction * this._speed);
     }
 }

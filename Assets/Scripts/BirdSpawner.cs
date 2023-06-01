@@ -7,7 +7,8 @@ public class BirdSpawner : MonoBehaviour
     [SerializeField] GameObject bird;
     private float time = 0;
     private Vector3 randomPosition;
-    
+    public float speed = 1;
+    private float timeIntervel = 2;
     public float spawnDuration;
 
     private void Update()
@@ -20,5 +21,16 @@ public class BirdSpawner : MonoBehaviour
             randomPosition = new (x, y, 0);
             Instantiate(bird, randomPosition , transform.rotation);
         }
+    }
+
+    public float Speed()
+    {
+        if (timeIntervel < Time.time)
+        {
+            speed = speed + 1;
+            timeIntervel += Time.time;
+            return speed;
+        }
+        return speed;
     }
 }
