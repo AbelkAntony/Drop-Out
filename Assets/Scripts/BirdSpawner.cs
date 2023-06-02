@@ -13,7 +13,7 @@ public class BirdSpawner : MonoBehaviour
     public float spawnDuration;
 
     private Vector2 direction = Vector2.down;
-    public new Rigidbody2D rigidbody { get; private set; }
+    public new Rigidbody2D rigidbody;
     private void Update()
     {
         if(Time.time > this.time)
@@ -23,19 +23,17 @@ public class BirdSpawner : MonoBehaviour
             float y = this.transform.position.y;
             randomPosition = new (x, y, 0);
             _bird = Instantiate(bird, randomPosition , transform.rotation);
-            rigidbody =  this._bird.GetComponent<Rigidbody2D>();
+            rigidbody =  _bird.GetComponent<Rigidbody2D>();
             this.rigidbody.AddForce(this.direction * this.speed);
         }
     }
 
-    public float Speed()
+    private void FixedUpdate ()
     {
         if (timeIntervel < Time.time)
         {
-            speed = speed + 1;
+            speed = speed + 10;
             timeIntervel += Time.time;
-            return speed;
         }
-        return speed;
     }
 }
