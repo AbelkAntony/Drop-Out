@@ -19,12 +19,13 @@ public class GameManager : MonoBehaviour
 
     public int level = 1;
     public int score = 0;
-    public int life  = 10;
+    public int life  = 5;
 
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(this.ui.gameObject);
+
 
         UiStatus(true, false);
     }
@@ -41,12 +42,12 @@ public class GameManager : MonoBehaviour
 
         if(life <=0)
         {
-           // SceneManager.LoadScene(sceneBuildIndex(2));
+            SceneManager.LoadScene("GameOver");
         }
     }
     private void ResetGame()
     {
-        life  = 10;
+        life  = 5;
         score = 0;
     }
 
@@ -83,5 +84,7 @@ public class GameManager : MonoBehaviour
     {
         life--;
     }
+
+
 
 }
