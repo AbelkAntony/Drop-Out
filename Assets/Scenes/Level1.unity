@@ -385,7 +385,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bird: {fileID: 7670428976147248107, guid: dcf5ffe4a17a5cb4e91d933c9e2f41b4, type: 3}
+  speed: 10
   spawnDuration: 3
+  rigidbody: {fileID: 0}
 --- !u!1 &1109971711
 GameObject:
   m_ObjectHideFlags: 0
