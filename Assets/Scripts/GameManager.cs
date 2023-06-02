@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject ui;
     public GameObject uiGameName;
     public GameObject uiPlayButton;
     public GameObject uiScore;
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        
+        DontDestroyOnLoad(this.ui.gameObject);
     }
 
  
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
         this.life = 0;
 
         LoadLevel(1);
-
+        UiStatus(false, true);
     }
 
     public void LoadLevel(int level)
@@ -40,5 +41,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Level" + level);
     }
 
+    private void UiStatus(bool main, bool game)
+    {
+        uiGameName.SetActive(main);
+        uiPlayButton.SetActive(main);
+        uiScore.SetActive(game);
+        uiLife.SetActive(game);
+        uiInstruction.SetActive(main);
+    }
    
 }
