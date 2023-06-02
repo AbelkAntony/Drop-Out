@@ -6,31 +6,52 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject ui;
-    public GameObject uiGameName;
-    public GameObject uiPlayButton;
-    public GameObject uiScore;
-    public GameObject uiLife;
-    public GameObject uiInstruction;
+    [SerializeField] GameObject ui;
+    [SerializeField] GameObject uiGameName;
+    [SerializeField] GameObject uiPlayButton;
+    [SerializeField] GameObject uiLife;
+    [SerializeField] GameObject uiInstruction;
+    [SerializeField] GameObject uiScore;
+    [SerializeField] GameObject uiScoreValue;
+    [SerializeField] GameObject uiLifeValue;
 
-
+    
 
     public int level = 1;
     public int score = 0;
-    public int life  = 3;
+    public int life  = 10;
 
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(this.ui.gameObject);
+
+        UiStatus(true, false);
     }
 
- 
+    private void Start()
+    {
+        ResetGame();
+    }
+
+    private void Update()
+    {
+        this.uiScoreValue.GetComponent<Text>().text = score.ToString();
+        this.uiLifeValue.GetComponent<Text>().text = life.ToString();
+
+        if(life <=0)
+        {
+           // SceneManager.LoadScene(sceneBuildIndex(2));
+        }
+    }
+    private void ResetGame()
+    {
+        life  = 10;
+        score = 0;
+    }
 
     public void NewGame()
     {
-        this.score = 0;
-        this.life = 0;
 
         LoadLevel(1);
         UiStatus(false, true);
@@ -45,9 +66,22 @@ public class GameManager : MonoBehaviour
     {
         uiGameName.SetActive(main);
         uiPlayButton.SetActive(main);
+        uiInstruction.SetActive(main);
+
         uiScore.SetActive(game);
         uiLife.SetActive(game);
-        uiInstruction.SetActive(main);
+        uiLifeValue.SetActive(game);
+        uiScoreValue.SetActive(game);
     }
-   
+
+    public void AddScore()
+    {
+        score++;
+    }
+
+    public void LifeUpdate()
+    {
+        life--;
+    }
+
 }

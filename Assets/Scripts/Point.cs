@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Point : MonoBehaviour
 {
-    public int point = 0;
+    public GameManager gameManager;
+
+    private void Awake()
+    {
+        this.gameManager = FindObjectOfType<GameManager>();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bird")
         {
-            AddPoint();
+            gameManager.AddScore();
             Destroy(collision.gameObject);
         }
     }
 
-    private void AddPoint()
-    {
-        point++;
-    }
+   
 }
