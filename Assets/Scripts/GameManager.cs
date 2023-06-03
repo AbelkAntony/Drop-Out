@@ -40,10 +40,7 @@ public class GameManager : MonoBehaviour
         this.uiScoreValue.GetComponent<Text>().text = score.ToString();
         this.uiLifeValue.GetComponent<Text>().text = life.ToString();
 
-        if(life <=0)
-        {
-            SceneManager.LoadScene("GameOver");
-        }
+     
     }
     private void ResetGame()
     {
@@ -53,7 +50,7 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-
+        ResetGame();
         LoadLevel(1);
         UiStatus(false, true);
     }
@@ -83,8 +80,16 @@ public class GameManager : MonoBehaviour
     public void LifeUpdate()
     {
         life--;
+        if (life <= 0)
+        {
+            GameOver();
+        }
     }
 
-
+    private void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+        
+    }
 
 }
